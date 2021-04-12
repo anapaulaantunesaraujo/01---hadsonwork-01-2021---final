@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1617154234 source:c:\users\ana\documents\github\01---hadsonwork-01-2021\handsonworkiii\main.c
+	<stdio.h>
+	<math.h>
+	<string.h>
+
