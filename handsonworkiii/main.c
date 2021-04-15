@@ -2,11 +2,13 @@
 #include <math.h>
 #include <string.h>
 
-//CHAMADA DAS FUNÇÕES UTILIZADAS
-int converterBin2Dec(long long valor_binario);
-long long converterDec2Bin(int valor_decimal);
-int converterDec2Oct(int valor_decimal);
-long long converterOct2Dec(int valor_octal);
+//DECLARAÇÃO OU PROTÓTIPO DAS FUNÇÕES UTILIZADAS
+//A DECLARACAO É FEITA DA SEGUINTE FORMA:
+//TIPO + NOME + (LISTA DE PARÂMETROS QUEA FUNÇÃO PRECISA)
+int converterBinDec(long long valor_binario);
+long long converterDecBin(int valor_decimal);
+int converterDecOct(int valor_decimal);
+long long converterOctDec(int valor_octal);
 
 int main()
 {
@@ -46,28 +48,28 @@ int main()
         else if (opcao == '1') {
             printf("Digite numero binario: ");
             scanf("%lld", &valor_binario);
-            printf("[%lld] em binario = [%d] em decimal\n", valor_binario, converterBin2Dec(valor_binario));
+            printf("[%lld] em binario = [%d] em decimal\n", valor_binario, converterBinDec(valor_binario));
         }
 
         //OPÇÃO 2 - DECIMAL -> BINÁRIO
         else if (opcao == '2') {
             printf("Digite o numero decimal: ");
             scanf("%d", &valor_decimal);
-            printf("[%d] em decimal = [%lld] em binario\n", valor_decimal, converterDec2Bin(valor_decimal));
+            printf("[%d] em decimal = [%lld] em binario\n", valor_decimal, converterDecBin(valor_decimal));
         }
 
         //OPÇÃO 3 - DECIMAL -> OCTAL
         else if (opcao == '3') {
             printf("Digite o numero decimal: ");
             scanf("%d", &valor_decimal);
-            printf("[%d] em decimal = [%d] em octal\n", valor_decimal, converterDec2Oct(valor_decimal));
+            printf("[%d] em decimal = [%d] em octal\n", valor_decimal, converterDecOct(valor_decimal));
         }
 
         //OPÇÃO 4 - OCTAL -> DECIMAL
         else if (opcao == '4') {
             printf("Digite o numero octal: ");
             scanf("%d", &valor_octal);
-            printf("[%d] em octal = [%lld] em decimal\n", valor_octal, converterOct2Dec(valor_octal));
+            printf("[%d] em octal = [%lld] em decimal\n", valor_octal, converterOctDec(valor_octal));
         }
         //OPÇÃO DESCONHECIDAO
         else {
@@ -77,14 +79,16 @@ int main()
 }
 
 
-///FUNCOES PARA CONVERSOES
+///FUNCOES PARA AS CONVERSÕES
 
-//CONCERSAO DE BINARIO X DECIMAL
-int converterBin2Dec(long long valor_binario)
+//CONCERSÃO DE BINARIO X DECIMAL
+int converterBinDec(long long valor_binario)
 {
+    //VARIÁVEIS UTILIZADAS NA FUNCAO
     int valor_decimal = 0, sequencial = 0, resto;
 
-    //ENQUANTO EXISTIR VALOR NO BINÁRIO
+    //LAÇO DE REPETIÇÃO
+    //ENQUANTO EXISTIR VALOR NO BINÁRIO ZERO
     while (valor_binario != 0)
     {
         //PEGA O RESTO DA DIVISÃO DO VALOR POR 10
@@ -94,6 +98,7 @@ int converterBin2Dec(long long valor_binario)
         valor_binario /= 10;
 
         //INCREMENTA O VALOR DECIMAL COM O RESTO DA DIVISÃO MULTIPLICANDO POR 2 ELEVADO AO SEQUENCIAL
+        //VALOR DECIMAL É IGUAL A SOMA DE (OS RESTOS MULTIPLICADOS PELO NUMERO SEQUENCIAL ELEVADO A 2)
         valor_decimal += resto * pow(2, sequencial);
 
         //INCREMENTA A SEQUENCIAL
@@ -104,12 +109,14 @@ int converterBin2Dec(long long valor_binario)
 }
 
 //CONCERSAO DE DECIMAL X BINARIO
-long long converterDec2Bin(int valor_decimal)
+long long converterDecBin(int valor_decimal)
 {
+    //VARIÁVEIS UTILIZADAS NA FUNCAO
     long long valor_binario = 0;
     int resto, sequencial = 1;
 
-    //ENQUANTO O VALOR DECIMAL FOR DIFERENTE DE
+    //LAÇO DE REPETIÇÃO
+    //ENQUANTO O VALOR DECIMAL FOR DIFERENTE DE ZERO
     while (valor_decimal != 0)
     {
         //PEGA O RESTO DA DIVISAO
@@ -129,10 +136,12 @@ long long converterDec2Bin(int valor_decimal)
 }
 
 //CONCERSAO DE DECIMAL X OCTAL
-int converterDec2Oct(int valor_decimal)
+int converterDecOct(int valor_decimal)
 {
+    //VARIÁVEIS UTILIZADAS NA FUNCAO
     int valor_octal = 0, sequencia = 1;
 
+    //LAÇO DE REPETIÇÃO
     //ENQUANTO O VALOR DECIMAL FOR DIFERENTE DE ZERO
     while (valor_decimal != 0)
     {
@@ -150,10 +159,12 @@ int converterDec2Oct(int valor_decimal)
 }
 
 //CONCERSAO DE OCTAL X DECIMAL
-long long converterOct2Dec(int valor_octal)
+long long converterOctDec(int valor_octal)
 {
+    //VARIÁVEIS UTILIZADAS NA FUNCAO
     int valor_decimal = 0, sequencia = 0;
 
+    //LAÇO DE REPETIÇÃO
     //ENQUANTO O VALOR OCTAL FOR DIFERENTE DE ZERO
     while(valor_octal != 0)
     {
