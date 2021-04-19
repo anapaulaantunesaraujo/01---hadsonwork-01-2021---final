@@ -18,9 +18,9 @@ int main()
     int valor_octal;
     int opcao2 = 1;
     long long valor_binario;
-    int valor_decimal, cociente;
-    int sequencial, valor_temp, tamanho_string;
-    char valor_hexa[100];
+    int valor_decimal;
+    int sequencial;
+
 
     //ENQUANTO FOR A OPCAO 1 EXECUTA NOVAMENTE, SE FOR DIFERENTE DE 1 SISTEMA É FINALIZADO
      while (opcao2 = 1) {
